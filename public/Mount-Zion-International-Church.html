@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mount Zion Church - Thika, Kenya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link rel="stylesheet" href="Styles.css">
+
+
+    <style>
+        /* Custom Colors */
+        .bg-primary { background-color: #3b5998; }
+        .bg-secondary { background-color: #e6b800; }
+        .bg-navy { background-color: #1e3a8a; }
+        .bg-gold { background-color: #e6b800; }
+        .bg-cream { background-color: #fff8e6; }
+        .bg-slate { background-color: #334155; }
+
+        .text-primary { color: #3b5998; }
+        .text-secondary { color: #e6b800; }
+        .text-navy { color: #1e3a8a; }
+        .text-gold { color: #e6b800; }
+        .text-cream { color: #fff8e6; }
+        .text-slate { color: #334155; }
+
+        /* Border Radius */
+        .rounded-none { border-radius: 0px; }
+        .rounded-sm { border-radius: 4px; }
+        .rounded { border-radius: 8px; }
+        .rounded-md { border-radius: 12px; }
+        .rounded-lg { border-radius: 16px; }
+        .rounded-xl { border-radius: 20px; }
+        .rounded-2xl { border-radius: 24px; }
+        .rounded-3xl { border-radius: 32px; }
+        .rounded-full { border-radius: 9999px; }
+        .rounded-button { border-radius: 8px; }
+
+        /* Fonts */
+        .font-merriweather { font-family: 'Merriweather', serif; }
+        .font-opensans { font-family: 'Open Sans', sans-serif; }
+
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Assets/Images/_DSC0622.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .custom-checkbox {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 24px;
+            width: 24px;
+            background-color: #fff;
+            border: 2px solid #3b5998;
+            border-radius: 4px;
+        }
+        
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: #3b5998;
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        .custom-checkbox .checkmark:after {
+            left: 8px;
+            top: 4px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimony-card {
+            position: relative;
+        }
+        
+        .testimony-card::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 100px;
+            font-family: 'Merriweather', serif;
+            color: rgba(59, 89, 152, 0.1);
+            z-index: 0;
+        }
+        
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #3b5998;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        input[type="range"] 
+        {
+            --webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b5998;
+            cursor: pointer;
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b5998;
+            cursor: pointer;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #3b5998;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+      
+        <!-- Header -->
+<header class="main-header">
+  <div class="header-container">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <i class="ri-church-line"></i>
+      </div>
+      <div class="logo-text">
+        <h1>Mount Zion</h1>
+        <p>Church</p>
+      </div>
+    </a>
+
+    <nav class="nav-desktop">
+      <a href="#" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About Us</a>
+      <a href="#passion" class="nav-link">Our Passion</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#get-help" class="nav-link">Get Help</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#services" class="join-btn desktop-only">Join Us</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle" id="mobileMenuBtn">
+      <i class="ri-menu-line"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobileMenu">
+    <a href="#" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About Us</a>
+    <a href="#passion" class="nav-link">Our Passion</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#get-help" class="nav-link">Get Help</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="#services" class="join-btn">Join Us</a>
+  </nav>
+</header>
+
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container hero-content">
+    <h1>Welcome to Mount Zion Church</h1>
+    <p>"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
+    <div class="hero-buttons">
+      <a href="#services" class="join">Join Us This Sunday</a>
+      <a href="#get-help" class="prayer">Request Prayer</a>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Access Bar -->
+<section class="quick-bar">
+  <div class="container">
+    <div class="quick-grid">
+      <div class="quick-item">
+        <div class="quick-icon"><i class="ri-time-line ri-lg"></i></div>
+        <div class="quick-text">
+          <h3>Service Times</h3>
+          <p>Sunday: 9:00 AM & 10:00 AM</p>
+        </div>
+      </div>
+
+      <div class="quick-item">
+        <div class="quick-icon"><i class="ri-live-line ri-lg"></i></div>
+        <div class="quick-text">
+          <h3>Watch Online</h3>
+          <p>Join our live stream service</p>
+        </div>
+      </div>
+
+      <div class="quick-item">
+        <div class="quick-icon"><i class="ri-heart-line ri-lg"></i></div>
+        <div class="quick-text">
+          <h3>Prayer Request</h3>
+          <p>Let us pray with you</p>
+        </div>
+      </div>
+
+      <div class="quick-item">
+        <div class="quick-icon"><i class="ri-hand-heart-line ri-lg"></i></div>
+        <div class="quick-text">
+          <h3>Give</h3>
+          <p>Support our ministry</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About / Vision Section -->
+<section class="vision-section" id="about">
+  <div class="container">
+    <div class="vision-title">
+      <h2>About Us</h2>
+      <div class="underline"></div>
+    </div>
+
+    <div class="vision-grid">
+      <div class="vision-block">
+        <h3>Our Vision</h3>
+        <p>At Mount Zion Church, we envision a community transformed by the love of Christ, where every person discovers their God-given purpose and lives it out with passion. We are committed to building a church that reaches across cultural and social boundaries, bringing the hope of Jesus to all people.</p>
+
+        <h3>Our Mission</h3>
+        <p>Our mission is to lead people into a growing relationship with Jesus Christ by creating environments where people are encouraged and equipped to pursue intimacy with God, community with insiders, and influence with outsiders.</p>
+
+        <div class="vision-quote">
+          <p>"For I know the plans I have for you,\" declares the LORD, \"plans to prosper you and not to harm you, plans to give you hope and a future.\"</p>
+          <p class="author">— Jeremiah 29:11</p>
+        </div>
+      </div>
+
+      <div class="vision-image">
+        <img src="Assets/Images/s2.jpg" alt="About Mount Zion Church" />
+      </div>
+    </div>
+
+    <!-- Leadership Section -->
+    <div class="leadership-section">
+      <div class="leadership-title">
+        <h3>Our Leadership</h3>
+        <div class="underline"></div>
+      </div>
+      <div class="leadership-grid">
+        <div class="leader-card">
+          <img src="Assets/Images/s5.jpg" alt="Bishop George Kiarie" />
+          <h4>George Kiarie</h4>
+          <p>Bishop</p>
+        </div>
+
+        <div class="leader-card">
+          <img src="Assets/Images/s6.jpg" alt="Reverend Jane Kiarie" />
+          <h4>Jane Kiarie</h4>
+          <p>Reverend</p>
+        </div>
+        <div class="leader-card">
+          <img src="Assets/Images/Logg.jpg" alt="Reverend Jane Kiarie" />
+          <h4>Mary Nyaga</h4>
+          <p>Reverend</p>
+        </div>
+        <div class="leader-card">
+          <img src="Assets/Images/Logg.jpg" alt="Reverend Jane Kiarie" />
+          <h4>Jackline Muturi</h4>
+          <p>Pastor</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Our Passion for Christ -->
+<section class="passion-section" id="passion">
+  <div class="container">
+    <div class="passion-title">
+      <h2>Our Passion for Christ</h2>
+      <div class="underline"></div>
+    </div>
+
+    <div class="passion-grid">
+      <div class="passion-image">
+        <img src="Assets/Images/pple.jpg" alt="Worshipping at Mount Zion Church" />
+      </div>
+
+      <div class="passion-block">
+        <h3>Centered on Scripture</h3>
+        <p>We believe the Bible is God's inspired Word and the ultimate authority for our faith and practice. Every sermon, Bible study, and small group is rooted in Scripture, helping our members grow in their understanding of God's truth.</p>
+
+        <h3>Passionate Worship</h3>
+        <p>Our worship services are vibrant celebrations of God's presence. Through contemporary and traditional African music, prayer, and the preaching of God's Word, we create an atmosphere where people can encounter Christ in a personal and transformative way.</p>
+
+        <h3>Authentic Community</h3>
+        <p>We believe that spiritual growth happens best in community. Our church provides opportunities for meaningful relationships through small groups, mentoring, and fellowship events where people can share life together and support one another in their faith journey.</p>
+
+        <div class="passion-quote">
+          <p>"And let us consider how we may spur one another on toward love and good deeds, not giving up meeting together, as some are in the habit of doing, but encouraging one another—and all the more as you see the Day approaching."</p>
+          <p class="author">— Hebrews 10:24-25</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Testimonies Section -->
+        <section class="Testimonies-section" id="testimonies">
+            <div class="container">
+                <div class="text-container">
+                    <h2 class="Testimonies-title">Testimonies</h2>
+                    <div class="underline"></div>
+                    <div id="testimony-list"></div>
+                <p>Hear how God is working in the lives of our church members. These stories of transformation, healing, and God's faithfulness inspire us all.</p>
+                </div>
+                
+                <div class="btn">
+                    <a href="Testimonies.html" class="bg-primary text-white px-8 py-3 rounded-button font-medium inline-flex items-center hover:bg-primary/90 transition whitespace-nowrap">
+                        
+                        Share Your Story
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section class="events-section" id="events">
+  <div class="container">
+    <div class="events-container">
+      <h2 class="events-text">Upcoming Events</h2>
+      <div class="underline"></div>
+      <p>
+        Join us for these special events and gatherings. There's always something happening at Mount Zion Church!
+      </p>
+    </div>
+
+    <div id="event-list" class="event-grid"></div>
+
+  </div>
+</section>
+
+
+        <!-- Church Updates -->
+        <section class="update-section" id="updates">
+  <div class="container">
+    <div class="update-container">
+      <h2 class="update-text">Church Updates</h2>
+      <div class="underline"></div>
+      <p>
+        Stay informed about what's happening at Mount Zion Church. Read our latest announcements, teachings, and stories.
+      </p>
+    </div>
+
+    <div id="update-list" class="update-grid"></div>
+  </div>
+</section>
+
+
+
+        <!-- Get Help Section -->
+        <section class="get-help-section" id="get-help">
+  <div class="container">
+    <div class="section-header">
+      <h2>Get Help</h2>
+      <div class="underline"></div>
+      <p>We're here to support you through life's challenges. Whether you need prayer, counseling, or practical assistance, our church family is ready to help.</p>
+    </div>
+
+    <div class="help-grid">
+      <!-- Left Column -->
+      <div class="prayer-form">
+        <h3>Prayer Request</h3>
+        <p>Share your prayer needs with us, and our prayer team will faithfully lift your requests to God. All prayer requests are kept confidential unless you specify otherwise.</p>
+
+        <form>
+          <label>Your Name</label>
+          <input type="text" placeholder="Enter your name" />
+
+          <label>Email Address</label>
+          <input type="email" placeholder="Enter your email" />
+
+          <label>Phone Number (Optional)</label>
+          <input type="tel" placeholder="Enter your phone number" />
+
+          <label>Prayer Request</label>
+          <textarea rows="5" placeholder="Share your prayer request here..."></textarea>
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="confidential" />
+            <label for="confidential">Keep my request confidential</label>
+          </div>
+
+          <button type="submit">Submit Prayer Request</button>
+        </form>
+      </div>
+
+      <!-- Right Column -->
+      <div class="support-services">
+        <h3>Support Services</h3>
+
+        <div class="support-card">
+          <h4>Pastoral Counseling</h4>
+          <p>Our pastors are available to provide spiritual guidance, biblical counsel, and prayer for individuals and families facing challenges.</p>
+          <a href="#">Schedule an Appointment →</a>
+        </div>
+
+        <div class="support-card">
+          <h4>Grief Support Group</h4>
+          <p>A caring community for those who have experienced loss, offering emotional support, practical help, and spiritual comfort.</p>
+          <a href="#">Learn More →</a>
+        </div>
+
+        <div class="support-card">
+          <h4>Marriage & Family Support</h4>
+          <p>Resources and counseling for couples and families seeking to strengthen their relationships and navigate challenges.</p>
+          <a href="#">Learn More →</a>
+        </div>
+
+        <div class="support-card">
+          <h4>Benevolence Ministry</h4>
+          <p>Assistance for those facing financial hardship, including food, clothing, and emergency financial support.</p>
+          <a href="#">Request Assistance →</a>
+        </div>
+
+        <div class="emergency-box">
+          <h4>Emergency Support</h4>
+          <p>For urgent pastoral care needs outside of regular office hours, please call our emergency pastoral care line.</p>
+          <p class="phone">📞 +254 712 345 678</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-header">
+      <h2>Contact Us</h2>
+      <div class="underline"></div>
+      <p>We'd love to hear from you! Reach out with any questions, comments, or prayer requests.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Form -->
+      <div class="contact-form">
+        <form>
+          <label>Your Name</label>
+          <input type="text" placeholder="Enter your name" />
+
+          <label>Email Address</label>
+          <input type="email" placeholder="Enter your email" />
+
+          <label>Phone Number</label>
+          <input type="tel" placeholder="Enter your phone number" />
+
+          <label>Subject</label>
+          <input type="text" placeholder="What is this regarding?" />
+
+          <label>Message</label>
+          <textarea rows="5" placeholder="Type your message here..."></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Info and Map -->
+      <div class="contact-info">
+        <div class="info-box">
+          <h3>Church Information</h3>
+
+          <div class="info-item">
+            <strong>Address:</strong>
+            <p>Mount Zion Cathedral, Thika, Kenya</p>
+          </div>
+
+          <div class="info-item">
+            <strong>Phone:</strong>
+            <p>+254 712 345 678</p>
+          </div>
+
+          <div class="info-item">
+            <strong>Email:</strong>
+            <p>info@mountzionchurch.co.ke</p>
+          </div>
+
+          <div class="info-item">
+            <strong>Office Hours:</strong>
+            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+          </div>
+        </div>
+
+        <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1457983409173!2d37.068491574359705!3d-1.0520113354136744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f4f0153132973%3A0xb22223ad7a4f44b2!2sMount%20zion%20church%20cathedral!5e0!3m2!1sen!2ske!4v1752585515715!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          <div class="map-caption">
+            <h4>Our Location</h4>
+            <p>We're located in the heart of Thika, just 10 minutes from the town center. Plenty of parking is available on site.</p>
+            <a href="#">Get Directions →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Newsletter Section -->
+        <section class="stay-connected-section">
+  <div class="container">
+    <div class="stay-connected-box">
+      <h2>Stay Connected</h2>
+      <p>Subscribe to our newsletter to receive weekly updates, sermon notes, and event announcements.</p>
+
+      <div class="subscribe-form">
+        <input type="email" placeholder="Your email address" />
+        <button>Subscribe</button>
+      </div>
+
+      <div class="social-section">
+        <p>Connect with us on social media:</p>
+        <div class="social-icons">
+          <a href="#"><i class="ri-facebook-fill"></i></a>
+          <a href="#"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+    <div class="footer-section">
+      <div>
+        <h3 style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: white;">Mount Zion</h3>
+        <p>"Transforming lives through the love of Christ."</p>
+        <div style="display: flex; gap: 0.5rem;">
+          <a href="#"><i class="ri-facebook-fill"></i></a>
+          <a href="#"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+                        <li><a href="#" class="text-slate-300 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-slate-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="#services" class="text-slate-300 hover:text-white transition">Services</a></li>
+                        <li><a href="#events" class="text-slate-300 hover:text-white transition">Events</a></li>
+                        <li><a href="#get-involved" class="text-slate-300 hover:text-white transition">Get Involved</a></li>
+                        <li><a href="#contact" class="text-slate-300 hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Service Times</h4>
+        <p>Sunday Services: 9:00 AM & 10:00 AM</p>
+        <p>Tuesday Bible Study: 6:00 PM</p>
+      </div>
+
+      <div>
+        <h4>Contact Info</h4>
+        <p>Mount Zion Cathedral, Thika, Kenya</p>
+        <p>+254 712 345 678</p>
+        <p>info@mountzionchurch.co.ke</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <p>&copy; 2025 Mount Zion Church. All rights reserved.</p>
+      <p style="margin-top: 0.5rem;">"But you have come to Mount Zion, to the city of the living God, the heavenly Jerusalem." — Hebrews 12:22</p>
+    </div>
+  </footer>
+    <script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+  });
+</script>
+
+
+
+    <script id="smooth-scroll-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        const mobileMenuButton = document.getElementById('mobile-menu-button');
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+<script>
+  async function loadTestimonies() {
+    const res = await fetch('/api/testimonies');
+    const testimonies = await res.json();
+
+    const container = document.getElementById('testimony-list');
+    container.innerHTML = testimonies.map(t => `
+      <div class="testimony">
+        <p>"${t.message}"</p>
+        <strong>- ${t.name}</strong>
+      </div>
+    `).join('');
+  }
+
+  loadTestimonies();
+</script>
+<script src="events.js"></script>
+<script src="updates.js"></script>
+</body>
+</html>
